@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/formStyles.css">
+    <title>Form</title>
+</head>
+<body>
+    <div class="container">
+        <form id="formEvent">
+            <div class="form-group">
+                <label for="start">Data Inicial:</label>
+                <input type="date" id="start">
+            </div>
+            <div class="form-group">
+                <label for="end">Data Final:</label>
+                <input type="date" id="end">
+            </div>
+            <div class="form-group">
+                <label for="startHour">Hora Inicial:</label>
+                <input type="time" min="00:00" max="23:00" value="00:00" id="startHour">
+            </div>
+            <div class="form-group">
+                <label for="endHour">Hora Final:</label>
+                <input type="time" min="00:00" max="23:00" value="00:00" id="endHour">
+            </div>
+            <div class="form-group">
+                <label for="title">Título:</label>
+                <input type="text" id="title">
+            </div>
+            <div class="form-group">
+                <label for="description">Descrição do Evento:</label>
+                <textarea id="description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="colorEvent">Cor do Evento:</label>
+                <input type="color" id="colorEvent">
+            </div>
+            <div class="form-group">
+                <label for="colorText">Cor do Texto:</label>
+                <input type="color" id="colorText">
+            </div>
+            <button type="submit">Enviar</button>
+            <button type="button">Voltar</button>
+        </form>
+    </div>
+    <script src="../js/formScript.js"></script>
+</body>
+</html>

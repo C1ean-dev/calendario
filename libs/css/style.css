@@ -1,0 +1,29 @@
+*{margin:0; padding: 0; box-sizing: border-box; font-family: Arial, Helvetica, sans-serif;}
+
+.calendar{
+    width: 80%;
+    margin: 30px auto;
+    height: 80%;
+}
+  @media screen and (max-width: 560px) {
+    .fc-direction-ltr .fc-toolbar>*>:not(:first-child){
+        margin-left: 0px !important;
+    }
+    .fc-toolbar-title{
+        font-size: small !important;
+        margin-right: 3px !important;
+        
+    }
+    .fc-header-toolbar fc-toolbar fc-toolbar-ltr{
+        margin-bottom: 1.5em !important;
+        display: block !important;
+    }
+    .fc .fc-toolbar.fc-header-toolbar{
+        box-sizing: border-box !important;
+        text-align: center !important;
+    }
+    .calendar{
+        width: 100% !important ;
+    }
+
+  }
