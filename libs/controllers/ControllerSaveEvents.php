@@ -1,5 +1,5 @@
 <?php 
-require_once("../config/config.php");
+require_once("../../config/config.php");
 
 // Verifica se os dados foram enviados via POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {

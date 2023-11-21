@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     form.addEventListener("button", function (e){
+        console.log('click');
         window.location.href = '../../index.php';
     })
 
@@ -37,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append("end", endDateTime);
         formData.append("startHour", eventData.startHour);
         formData.append("endHour", eventData.endHour);
-        formData.append("endHour", eventData.endHour);
         formData.append("title", eventData.title);
         formData.append("description", eventData.description);
         formData.append("colorEvent", eventData.colorEvent);
@@ -54,6 +54,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         };
             xhr.send(formData);
+            console.log(startDateTime)
+            console.log(endDateTime)
+            console.log(eventData.startHour)
+            console.log(eventData.endHour)
+
             alert("Evento salvo com sucesso!");
             
     });

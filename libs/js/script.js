@@ -2,26 +2,19 @@
     'use strict';
 
     let calendarEl = doc.querySelector('.calendar');
-    var EventJsonObj;
-    fetch('../libs/controllers/ControllerGetEvents.php', {mode: 'no-cors'})
+
+    fetch('libs/controllers/ControllerGetEvents.php', {mode: 'no-cors'})
     .then(response => response.json())
     .then(data => {
-        EventJsonObj = data;
-        console.log(EventJsonObj);
-    })
-    .catch((error) => {
-        console.log(EventJsonObj);
-        console.error('Error:', error);
-    });
+        console.log(data);
 
-                
-    let calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        locale: 'pt-br',
-        headerToolbar: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        let calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale: 'pt-br',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
             },
             buttonText:{
                 today: 'Hoje',
@@ -29,15 +22,19 @@
                 week: 'SEMANA',
                 day: 'DIA'
             },
-            events: EventJsonObj,
+            
+            events: data,
             dateClick: function (info) {
-                // Quando o usuário clica em uma data, redirecione para o formulário
-                window.location.href = '/libs/html/form.html?data=' + info.date.toISOString();
+                window.location.href = 'libs/html/form.html?data=' + info.date.toISOString();
             },
             eventClick: function(info) {
                 let event = info.event;
                 alert(event.title);
             }
         });
-    calendar.render();
+        calendar.render();
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 })(window, document);
