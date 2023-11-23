@@ -18,8 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     form.addEventListener("submit", function (e) {
         e.preventDefault();
-        
+
+        var allDay = document.getElementById("allDay").checked;
+        var url = window.location.href;
+
         const eventData ={
+            allDay: allDay,
+            url: url,
             start: document.getElementById("start").value,
             end: document.getElementById("end").value,
             startHour: document.getElementById("startHour").value,
@@ -29,11 +34,14 @@ document.addEventListener("DOMContentLoaded", function () {
             colorEvent: document.getElementById("colorEvent").value,
             colorText: document.getElementById("colorText").value
         }
-
+        
         const formData = new FormData(form)
         const startDateTime = new Date(eventData.start + "T" + eventData.startHour).toISOString();
         const endDateTime = new Date(eventData.end + "T" + eventData.endHour).toISOString();
         
+        
+        formData.append("allDay", allDay);
+        formData.append("url", url);
         formData.append("start", startDateTime);
         formData.append("end", endDateTime);
         formData.append("startHour", eventData.startHour);
@@ -42,7 +50,8 @@ document.addEventListener("DOMContentLoaded", function () {
         formData.append("description", eventData.description);
         formData.append("colorEvent", eventData.colorEvent);
         formData.append("colorText", eventData.colorText);
-        formData.append("action", "save");
+        //formData.append("action", "save");
+
         // Envia os dados do formulário para o servidor
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "../controllers/controllerSaveEvents.php", true);
@@ -54,11 +63,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         };
             xhr.send(formData);
-            console.log(startDateTime)
-            console.log(endDateTime)
-            console.log(eventData.startHour)
-            console.log(eventData.endHour)
-
             alert("Evento salvo com sucesso!");
             
     });

@@ -4,6 +4,7 @@ require_once("../../config/config.php");
 // Verifica se os dados foram enviados via POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Recebe os dados do formulário
+    $allDay = $_POST["allDay"];
     $start = $_POST["start"];
     $end = $_POST["end"];
     $startHour = $_POST["startHour"];
@@ -22,9 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Prepara a consulta SQL de inserção
-    $stmt = $conn->prepare("INSERT INTO eventos (start, end, startHour, endHour, title, description, colorEvent, colorText)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssss", $start, $end, $startHour, $endHour, $title, $description, $colorEvent, $colorText);
+    $stmt = $conn->prepare("INSERT INTO eventos (allDay,start,end,startHour,endHour,title,description,colorEvent,colorText)
+            VALUES (?,?,?,?,?,?,?,?,?)");
+    $stmt->bind_param("sssssssss", $allDay, $start, $end, $startHour, $endHour, $title, $description, $colorEvent, $colorText);
 
     // Executa a consulta SQL
     if ($stmt->execute()) {

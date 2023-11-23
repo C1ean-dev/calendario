@@ -1,0 +1,61 @@
+<div class="modal fade" id="modalEventUpdate" tabindex="-1" role="dialog" aria-labelledby="modalEventUpdateLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="modalEventUpdateLabel">Editar Evento</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="formEventUpdate">
+            <div class="ml-auto">
+              <label for="id">ID:</label>
+              <input type="text" id="id" readonly>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="allDayUpdate">
+                <label class="form-check-label" for="allDay">Compromisso dia todo</label>
+            </div>
+            <div class="form-group">
+                <label for="start">Data Inicial:</label>
+                <input type="date" class="form-control" id="startUpdate" required>
+            </div>
+            <div class="form-group">
+                <label for="end">Data Final:</label>
+                <input type="date" class="form-control" id="endUpdate" required>
+            </div>
+            <div class="form-group">
+                <label for="startHour">Hora Inicial:</label>
+                <input type="time" min="00:00" max="23:00" value="00:00" class="form-control" id="startHourUpdate" required>
+            </div>
+            <div class="form-group">
+                <label for="endHour">Hora Final:</label>
+                <input type="time" min="00:00" max="23:00" value="00:00" class="form-control" id="endHourUpdate" required>
+            </div>
+            <div class="form-group">
+                <label for="title">Título:</label>
+                <input type="text" class="form-control" id="titleUpdate" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Descrição do Evento:</label>
+                <textarea class="form-control" id="description" aria-describedby="descriptionHelp" required></textarea>
+                <small id="descriptionHelp" class="form-text text-muted">Por favor, insira a descrição do evento.</small>
+            </div>
+            <div class="form-group">
+                <label for="colorEvent">Cor do Evento:</label>
+                <input type="color" class="form-control" id="colorEventUpdate">
+            </div>
+            <div class="form-group">
+                <label for="colorText">Cor do Texto:</label>
+                <input type="color" class="form-control" id="colorTextUpdate">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button id= "buttonUpdate"type="submit" class="btn btn-primary">Salvar alterações</button>
+        </div>
+      </div>
+    </div>
+  </div>
